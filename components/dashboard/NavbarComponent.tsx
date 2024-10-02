@@ -126,7 +126,9 @@ export default function Component() {
         </NavigationMenu>
       </nav>
       {/* //TODO Session Verification */}
-      <Button color="#5CB85C">Log In</Button>
+      <Link href={"/auth/login"}>
+        <Button color="#5CB85C">Log In</Button>
+      </Link>
     </header>
   );
 }

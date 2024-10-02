@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   },
   description: "An automated data analyst website for small and medium-sized enterprises",
   icons: {
-    icon: "/logo.png",
+    icon: "/logo-transparent.png",
   },
 };
 

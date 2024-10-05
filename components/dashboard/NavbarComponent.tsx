@@ -22,7 +22,7 @@ export default function Component() {
         <SheetTrigger asChild>
           <Button variant="outline" size="icon" className="lg:hidden">
             <MenuIcon className="h-6 w-6" />
-            <span className="sr-only">Toggle navigation menu</span>
+            <span className="sr-only">Buka menu navigasi</span>
           </Button>
         </SheetTrigger>
         <SheetContent side="left">
@@ -71,7 +71,7 @@ export default function Component() {
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Product</NavigationMenuTrigger>
+              <NavigationMenuTrigger>Produk</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                   <li className="row-span-3">
@@ -90,24 +90,25 @@ export default function Component() {
                           MicroBiz
                         </div>
                         <p className="text-sm leading-tight text-muted-foreground">
-                          An automated data analyst website for small and
-                          medium-sized enterprises.
+                          Sebuah website yang melakukan data analisis secara
+                          otomatis untuk Usaha mikro, kecil, dan menengah
+                          (UMKM).
                         </p>
                       </Link>
                     </NavigationMenuLink>
                   </li>
                   {/* //TODO Session verification */}
-                  <ListItem href="/auth/login" title="Get Started">
-                    Start to use our product. Required to log in first.
+                  <ListItem href="/auth/login" title="Mulai Sekarang">
+                    Mulai menggunakan produk kami. Dibutuhkan log in terlebih dahulu.
                   </ListItem>
-                  <ListItem href="/example" title="How to Use">
-                    Example of how to use our product.
+                  <ListItem href="/how" title="Panduan Pemakaian">
+                    Panduan untuk menggunakan produk kami.
                   </ListItem>
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>About</NavigationMenuTrigger>
+              <NavigationMenuTrigger>Tentang</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px]">
                   {about.map((about) => (
@@ -125,7 +126,7 @@ export default function Component() {
           </NavigationMenuList>
         </NavigationMenu>
       </nav>
-      {/* //TODO Session Verification */}
+      {/* //TODO Session Verification & Responsive */}
       <Link href={"/auth/login"}>
         <Button color="#5CB85C">Log In</Button>
       </Link>

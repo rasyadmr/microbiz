@@ -1,4 +1,5 @@
 import NavbarComponent from "@/components/dashboard/NavbarComponent";
+import Footer from "@/components/dashboard/Footer";
 import React from "react";
 
 export default function Layout({
@@ -9,9 +10,10 @@ export default function Layout({
   return (
     <>
       <NavbarComponent />
-      <main className="px-20">
+      <main className="mx-20 mb-20 border rounded-md shadow-md">
         {children}
       </main>
+      <Footer />
     </>
   );
 }

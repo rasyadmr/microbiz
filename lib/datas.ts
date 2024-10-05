@@ -1,19 +1,19 @@
 export const about = [
   {
-    href: "/about",
-    title: "About",
-    description: "About this website.",
+    href: "/home#about",
+    title: "Tentang",
+    description: "Tentang website dan produk kami.",
   },
   {
-    href: "/team",
-    title: "Team",
+    href: "/home#team",
+    title: "Tim",
     description:
-      "People who work in this website both on the website itself and the idea of the business.",
+      "Orang-orang yang bekerja di situs web ini baik pembuatan situs web itu sendiri maupun ide bisnisnya.",
   },
   {
-    href: "/social",
-    title: "Social Media",
-    description: "Social media links for this business.",
+    href: "/home#social",
+    title: "Sosial Media",
+    description: "Tautan sosial media bisnis ini.",
   },
 ];
 
@@ -29,5 +29,51 @@ export const navlinks = [
   {
     href: "/about",
     title: "About",
+  },
+];
+
+export const team = [
+  {
+    name: "Reyza Rahmatsyah",
+    role: "Team Leader",
+    image: "/logo-transparent.png",
+  },
+  {
+    name: "Gregory Nicolla",
+    role: "Product Developer",
+    image: "/logo-transparent.png",
+  },
+  {
+    name: "Rasyad Muhammad Ramdhanazuri",
+    role: "Web Developer",
+    image: "/logo-transparent.png",
+  },
+  {
+    name: "Richard Gregorius",
+    role: "Web Developer",
+    image: "/logo-transparent.png",
+  },
+  {
+    name: "Zaphenath Paneah Joseph Irawan",
+    role: "Product Developer",
+    image: "/logo-transparent.png",
+  },
+];
+
+export const social = [
+  {
+    name: "TikTok",
+    href: "https://tiktok.com",
+    icon: "https://img.icons8.com/color/48/tiktok--v1.png",
+  },
+  {
+    name: "Instagram",
+    href: "https://instagram.com",
+    icon: "https://img.icons8.com/fluency/48/instagram-new.png",
+  },
+  {
+    name: "YouTube",
+    href: "https://youtube.com",
+    icon: "https://img.icons8.com/color/48/youtube-play.png",
   },
 ];

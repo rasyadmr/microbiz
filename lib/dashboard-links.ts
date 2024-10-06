@@ -56,16 +56,16 @@ export function getMenuList(pathname: string): Group[] {
         }
       ]
     },
-    {
-      groupLabel: "Settings",
-      menus: [
-        {
-          href: "/account",
-          label: "Akun",
-          active: pathname.endsWith("/account"),
-          icon: Settings
-        }
-      ]
-    }
+    // {
+    //   groupLabel: "Settings",
+    //   menus: [
+    //     {
+    //       href: "/account",
+    //       label: "Akun",
+    //       active: pathname.endsWith("/account"),
+    //       icon: Settings
+    //     }
+    //   ]
+    // }
   ];
 }

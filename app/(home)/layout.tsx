@@ -1,5 +1,5 @@
-import NavbarComponent from "@/components/dashboard/NavbarComponent";
-import Footer from "@/components/dashboard/Footer";
+import NavbarComponent from "@/components/home/navbar";
+import Footer from "@/components/home/footer";
 import React from "react";
 
 export default function Layout({

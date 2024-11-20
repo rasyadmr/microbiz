@@ -72,17 +72,17 @@ export const team = [
 export const social = [
   {
     name: "TikTok",
-    href: "https://tiktok.com",
+    href: "https://www.tiktok.com/@microbiz.id",
     icon: "https://img.icons8.com/color/48/tiktok--v1.png",
   },
   {
     name: "Instagram",
-    href: "https://instagram.com",
+    href: "https://www.instagram.com/microbiz.id/",
     icon: "https://img.icons8.com/fluency/48/instagram-new.png",
   },
   {
     name: "YouTube",
-    href: "https://youtube.com",
+    href: "https://www.youtube.com/@MicroBizId",
     icon: "https://img.icons8.com/color/48/youtube-play.png",
   },
 ];

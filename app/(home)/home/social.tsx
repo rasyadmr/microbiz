@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { social } from "@/lib/datas";
+import Link from "next/link";
 import Image from "next/image";
 
 export default function Social() {
@@ -12,7 +13,8 @@ export default function Social() {
               Sosial media kami
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Anda dapat melihat sosial media kami dengan meng-klik salah satu tombol dibawah.
+              Anda dapat melihat sosial media kami dengan menekan salah satu
+              tombol dibawah ini.
             </p>
           </div>
           <ul
@@ -21,13 +23,26 @@ export default function Social() {
           >
             {social.map((social) => (
               <li key={social.name}>
-                <Button variant={"outline"} size={"lg"} className="w-full">
-                  <Image src={social.icon} height={30} width={30} alt={social.name} className="mr-5" />
-                  <div className="flex items-center gap-x-6">
-                    <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">
-                      {social.name}
-                    </h3>
-                  </div>
+                <Button
+                  variant={"outline"}
+                  size={"lg"}
+                  className="w-full"
+                  asChild
+                >
+                  <Link href={social.href}>
+                    <Image
+                      src={social.icon}
+                      height={30}
+                      width={30}
+                      alt={social.name}
+                      className="mr-5"
+                    />
+                    <div className="flex items-center gap-x-6">
+                      <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">
+                        {social.name}
+                      </h3>
+                    </div>
+                  </Link>
                 </Button>
               </li>
             ))}

@@ -55,7 +55,7 @@ export default function Component() {
           </div>
         </SheetContent>
       </Sheet>
-      <Link href="#" className="mr-6 hidden lg:flex" prefetch={false}>
+      <Link href="/" className="mr-6 hidden lg:flex" prefetch={false}>
         <Image
           src="/logo-transparent.png"
           alt="MicroBiz"
@@ -68,7 +68,7 @@ export default function Component() {
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <Link href={"/"} legacyBehavior passHref>
+              <Link href={"/home"} legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Home
                 </NavigationMenuLink>

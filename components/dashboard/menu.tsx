@@ -121,13 +121,13 @@ export function Menu({ isOpen }: { isOpen: boolean | undefined }) {
                           isOpen === false ? "opacity-0 hidden" : "opacity-100"
                         )}
                       >
-                        Sign out
+                        Log out
                       </p>
                     </Button>
                   </form>
                 </TooltipTrigger>
                 {isOpen === false && (
-                  <TooltipContent side="right">Sign out</TooltipContent>
+                  <TooltipContent side="right">Log out</TooltipContent>
                 )}
               </Tooltip>
             </TooltipProvider>

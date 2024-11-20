@@ -14,6 +14,7 @@ const breadcrumbList = [
 ];
 
 const updates = [
+  "Fix: Social Links & Consistent Text",
   "Fix: Dashboard Navigation Bar",
   "Add: Dashboard Content",
   "Version 0.1.1",
@@ -23,7 +24,6 @@ const updates = [
   "Fix: Register page",
   "Add: Authentication pages",
   "Fix: EsLint and Prettier",
-  "Add: Navigation Bar",
 ];
 
 export default function Page() {

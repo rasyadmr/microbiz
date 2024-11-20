@@ -30,7 +30,7 @@ export default function Header() {
             </div>
             <div className="mt-5 max-w-3xl">
               <p className="text-xl text-muted-foreground">
-                Sebuah website yang melakukan data analisis secara otomatis
+                Sebuah website yang melakukan data analisis secara otomatis dan pembuatan formulir pajak
                 untuk Usaha mikro, kecil, dan menengah (UMKM).
               </p>
             </div>

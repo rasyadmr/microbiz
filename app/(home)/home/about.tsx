@@ -10,10 +10,10 @@ export default function About() {
               <h2 className="text-3xl font-bold lg:text-4xl">Produk Kami</h2>
               <p className="mt-3 text-muted-foreground">
                 Sebuah aplikasi website yang memberikan fitur data analisis
-                secara otomatis. Disamping itu, kami dapat membuat lembar
-                pambayaran pajak yang harus dilaporkan kepada kantor pajak. Hal
-                tersebut dapat memudahkan UMKM atau pebisnis lain dalam membuat
-                laporan pajak.
+                secara otomatis. Disamping itu, website kami dapat membuat
+                formulir pambayaran pajak yang harus dilaporkan kepada kantor
+                pajak. Hal tersebut dapat memudahkan UMKM atau pebisnis lain
+                dalam membuat laporan pajak.
               </p>
             </div>
             <div className="space-y-6 lg:space-y-10">

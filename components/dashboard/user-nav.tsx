@@ -20,7 +20,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-
 // TODO Auth
 export function UserNav() {
   return (
@@ -47,7 +46,9 @@ export function UserNav() {
       <DropdownMenuContent className="w-56" align="end" forceMount>
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">Rasyad Muhammad Ramdhanazuri</p>
+            <p className="text-sm font-medium leading-none">
+              Rasyad Muhammad Ramdhanazuri
+            </p>
             <p className="text-xs leading-none text-muted-foreground">
               rasyadmr@gmail.com
             </p>
@@ -61,7 +62,7 @@ export function UserNav() {
               Dashboard
             </Link>
           </DropdownMenuItem>
-          <DropdownMenuItem className="hover:cursor-pointer" asChild>
+          <DropdownMenuItem className="hover:cursor-pointer" asChild disabled>
             <Link href="/account" className="flex items-center">
               <User className="w-4 h-4 mr-3 text-muted-foreground" />
               Akun
@@ -70,9 +71,11 @@ export function UserNav() {
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         {/* //TODO Logout handler */}
-        <DropdownMenuItem className="hover:cursor-pointer" onClick={() => {}}>
-          <LogOut className="w-4 h-4 mr-3 text-muted-foreground" />
-          Log Out
+        <DropdownMenuItem className="hover:cursor-pointer" asChild>
+          <Link href="/home" className="flex items-center">
+            <LogOut className="w-4 h-4 mr-3 text-muted-foreground" />
+            Log Out
+          </Link>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

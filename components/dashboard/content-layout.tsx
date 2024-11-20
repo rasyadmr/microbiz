@@ -1,8 +1,11 @@
 import { Navbar } from "@/components/dashboard/navbar";
-import Breadcumbs, { BreadcrumbType } from "./breadcrumbs";
-import { Card, CardContent } from "../ui/card";
+import Breadcumbs, { BreadcrumbType } from "@/components/dashboard/breadcrumbs";
+import { Card, CardContent } from "@/components/ui/card";
+import { Suspense } from "react";
+import ContentSkeleton from "@/components/dashboard/content-skeleton";
+import NavbarSkeleton from "@/components/dashboard/navbar-skeleton";
 
-export function ContentLayout({
+export async function ContentLayout({
   title,
   children,
   breadcrumbs,
@@ -13,12 +16,16 @@ export function ContentLayout({
 }) {
   return (
     <div>
-      <Navbar title={title} />
+      <Suspense fallback={<NavbarSkeleton />}>
+        <Navbar title={title} />
+      </Suspense>
       <div className="pt-8 pb-8 px-4 sm:px-8">
-        <Breadcumbs breadcrumbs={breadcrumbs} />
-        <Card className="rounded-lg border-none mt-6">
-          <CardContent className="p-6">{children}</CardContent>
-        </Card>
+        <Suspense fallback={<ContentSkeleton />}>
+          <Breadcumbs breadcrumbs={breadcrumbs} />
+          <Card className="rounded-lg border-none mt-6">
+            <CardContent className="p-6">{children}</CardContent>
+          </Card>
+        </Suspense>
       </div>
     </div>
   );

@@ -38,7 +38,7 @@ export default function Header() {
               <Link href={"/auth/login"}>
                 <Button size={"lg"}>Mulai Sekarang</Button>
               </Link>
-              <Link href={"/how"}>
+              <Link href={"/help"}>
                 <Button size={"lg"} variant={"outline"}>
                   Panduan
                 </Button>

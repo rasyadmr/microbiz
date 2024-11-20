@@ -42,12 +42,16 @@ export default function Component() {
                   key={index}
                   href={link.href}
                   className="flex w-full items-center py-2 text-lg font-semibold"
-                  prefetch={false}
                 >
                   {link.title}
                 </Link>
               );
             })}
+          </div>
+          <div className="w-full">
+            <Link href={"/auth/login"} className="w-full">
+              <Button color="#5CB85C" className="w-full">Log In</Button>
+            </Link>
           </div>
         </SheetContent>
       </Sheet>
@@ -99,9 +103,10 @@ export default function Component() {
                   </li>
                   {/* //TODO Session verification */}
                   <ListItem href="/auth/login" title="Mulai Sekarang">
-                    Mulai menggunakan produk kami. Dibutuhkan log in terlebih dahulu.
+                    Mulai menggunakan produk kami. Dibutuhkan log in terlebih
+                    dahulu.
                   </ListItem>
-                  <ListItem href="/how" title="Panduan Pemakaian">
+                  <ListItem href="/help" title="Panduan Pemakaian">
                     Panduan untuk menggunakan produk kami.
                   </ListItem>
                 </ul>
@@ -127,7 +132,7 @@ export default function Component() {
         </NavigationMenu>
       </nav>
       {/* //TODO Session Verification & Responsive */}
-      <Link href={"/auth/login"}>
+      <Link href={"/auth/login"} className="hidden lg:block">
         <Button color="#5CB85C">Log In</Button>
       </Link>
     </header>

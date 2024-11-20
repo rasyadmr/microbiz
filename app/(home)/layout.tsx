@@ -1,5 +1,5 @@
-import NavbarComponent from "@/components/home/navbar";
-import Footer from "@/components/home/footer";
+import NavbarComponent from "@/app/navbar";
+import Footer from "@/app/footer";
 import React from "react";
 
 export default function Layout({

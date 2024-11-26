@@ -1,6 +1,6 @@
 "use client";
 
-import { CartesianGrid, Line, LineChart } from "recharts";
+import { Area, AreaChart, CartesianGrid } from "recharts";
 
 import {
   Card,
@@ -12,6 +12,8 @@ import {
 import {
   ChartConfig,
   ChartContainer,
+  ChartLegend,
+  ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
@@ -28,7 +30,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export function LinechartComponent({
+export function AreachartComponent({
   dataX,
   dataY,
 }: {
@@ -40,11 +42,11 @@ export function LinechartComponent({
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Line Chart</CardTitle>
+        <CardTitle>Area Chart</CardTitle>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
-          <LineChart
+          <AreaChart
             accessibilityLayer
             data={chartData}
             margin={{
@@ -53,29 +55,28 @@ export function LinechartComponent({
             }}
           >
             <CartesianGrid vertical={false} />
-            {/* <XAxis
-              dataKey="month"
-              tickLine={false}
-              axisLine={false}
-              tickMargin={8}
-              tickFormatter={(value) => value.slice(0, 3)}
-            /> */}
-            <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
-            <Line
+            <ChartTooltip
+              cursor={false}
+              content={<ChartTooltipContent indicator="line" />}
+            />
+            <Area
               dataKey="varX"
-              type="monotone"
+              type="natural"
+              fill="var(--color-varX)"
+              fillOpacity={0.4}
               stroke="var(--color-varX)"
-              strokeWidth={2}
-              dot={false}
+              stackId="a"
             />
-            <Line
+            <Area
               dataKey="varY"
-              type="monotone"
+              type="natural"
+              fill="var(--color-varY)"
+              fillOpacity={0.4}
               stroke="var(--color-varY)"
-              strokeWidth={2}
-              dot={false}
+              stackId="a"
             />
-          </LineChart>
+            <ChartLegend content={<ChartLegendContent />} />
+          </AreaChart>
         </ChartContainer>
       </CardContent>
       <CardFooter>

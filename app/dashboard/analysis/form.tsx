@@ -1,5 +1,3 @@
-"use client";
-
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -34,7 +32,7 @@ import { getVariableDataXlsx, processVariables } from "@/lib/analysis";
 import { analysisDZOConfig } from "@/lib/datas";
 
 const formSchema = z.object({
-  analysisFile: z.any(), //TODO Decide to use or no
+  analysisFile: z.any(), // TODO: Decide if this is necessary
   varX: z
     .string({ message: "Silahkan pilih variabel pertama!" })
     .min(1, { message: "Silahkan pilih variabel pertama!" }),
@@ -43,40 +41,64 @@ const formSchema = z.object({
     .min(1, { message: "Silahkan pilih variabel kedua!" }),
 });
 
-export function AnalysisForm({ setDataX, setDataY } : { setDataX: (data: string[]) => void, setDataY: (data: string[]) => void }) {
+export function AnalysisForm({
+  setDataX,
+  setDataY,
+}: {
+  setDataX: (data: string[]) => void;
+  setDataY: (data: string[]) => void;
+}) {
   const [file, setFile] = useState<File[] | null>(null);
   const [variables, setVariables] = useState<string[] | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   });
 
-  function onChange(file: File[] | null) {
-    if (file?.length == 0 || !file) {
+  const onChange = async (file: File[] | null) => {
+    if (!file || file.length === 0) {
       setFile(null);
+      setVariables(null);
       return;
     }
 
     setFile(file);
-    processVariables(file[0]).then(result => {
-      setVariables(result);
-    });
-  }
+    setIsLoading(true);
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      if (file === null) {
+      const result = await processVariables(file[0]);
+      setVariables(result);
+    } catch (error) {
+      toast.error("Error processing the file");
+      console.error("Error processing file:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    try {
+      if (!file) {
         throw new Error("File is required");
       }
-      // TODO Submit analysis action
-      console.warn("Submitted!");
-      getVariableDataXlsx(file[0], values.varX).then(value => setDataX(value as string[]));
-      getVariableDataXlsx(file[0], values.varY).then(value => setDataY(value as string[]));
+
+      setIsLoading(true);
+
+      const dataX = await getVariableDataXlsx(file[0], values.varX);
+      const dataY = await getVariableDataXlsx(file[0], values.varY);
+
+      setDataX(dataX as string[]);
+      setDataY(dataY as string[]);
+
+      toast.success("Analysis completed successfully!");
     } catch (error) {
-      console.error("Form submission error", error);
       toast.error("Failed to submit the form. Please try again.");
+      console.error("Form submission error", error);
+    } finally {
+      setIsLoading(false);
     }
-  }
+  };
 
   return (
     <Form {...form}>
@@ -98,14 +120,14 @@ export function AnalysisForm({ setDataX, setDataY } : { setDataX: (data: string[
                     id="fileInput"
                     className="outline-dashed outline-1 outline-slate-500"
                   >
-                    <div className="flex items-center justify-center flex-col p-8 w-full ">
+                    <div className="flex items-center justify-center flex-col p-8 w-full">
                       <CloudUpload className="text-gray-500 w-10 h-10" />
                       <p className="mb-1 text-sm text-gray-500 dark:text-gray-400">
                         <span className="font-semibold">Click to upload</span>
                         &nbsp;or drag and drop
                       </p>
                       <p className="text-xs text-gray-500 dark:text-gray-400">
-                        XLSX atau CSV
+                        XLSX or CSV
                       </p>
                     </div>
                   </FileInput>
@@ -129,6 +151,7 @@ export function AnalysisForm({ setDataX, setDataY } : { setDataX: (data: string[
             </FormItem>
           )}
         />
+
         <FormField
           control={form.control}
           name="varX"
@@ -139,7 +162,7 @@ export function AnalysisForm({ setDataX, setDataY } : { setDataX: (data: string[
                 <Select
                   onValueChange={field.onChange}
                   value={field.value}
-                  disabled={!file}
+                  disabled={isLoading || !file}
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="Variabel X" />
@@ -164,6 +187,7 @@ export function AnalysisForm({ setDataX, setDataY } : { setDataX: (data: string[
             </FormItem>
           )}
         />
+
         <FormField
           control={form.control}
           name="varY"
@@ -174,7 +198,7 @@ export function AnalysisForm({ setDataX, setDataY } : { setDataX: (data: string[
                 <Select
                   onValueChange={field.onChange}
                   value={field.value}
-                  disabled={!file}
+                  disabled={isLoading || !file}
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="Variabel Y" />
@@ -199,8 +223,9 @@ export function AnalysisForm({ setDataX, setDataY } : { setDataX: (data: string[
             </FormItem>
           )}
         />
-        <Button className="w-[20%]" type="submit" disabled={!file}>
-          Tampilkan
+
+        <Button className="w-[20%]" type="submit" disabled={!file || isLoading}>
+          {isLoading ? "Processing..." : "Tampilkan"}
         </Button>
       </form>
     </Form>

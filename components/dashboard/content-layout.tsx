@@ -22,7 +22,7 @@ export async function ContentLayout({
       <div className="pt-8 pb-8 px-4 sm:px-8">
         <Suspense fallback={<ContentSkeleton />}>
           <Breadcumbs breadcrumbs={breadcrumbs} />
-          <Card className="rounded-lg border-none mt-6">
+          <Card className="rounded-lg border-none mt-6 w-full h-full">
             <CardContent className="p-6">{children}</CardContent>
           </Card>
         </Suspense>

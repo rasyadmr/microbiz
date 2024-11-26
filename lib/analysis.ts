@@ -132,7 +132,9 @@ export function getVariableDataXlsx(file: File, variable: string) {
           return;
         }
 
-        const result = (rows as string[][]).slice(1).map((row: string[]) => row[index]);
+        const result = (rows as string[][])
+          .slice(1)
+          .map((row: string[]) => row[index]);
         resolve(result);
       } catch (error) {
         reject(error);
@@ -143,4 +145,22 @@ export function getVariableDataXlsx(file: File, variable: string) {
       reject(new Error("Error reading file"));
     };
   });
+}
+
+export function translateData(
+  dataX: string[] | null,
+  dataY: string[] | null
+): Array<{ x: string | number; varX: number; varY: number }> {
+  if (!dataX || !dataY) {
+    return [];
+  }
+
+  const result = [];
+  for (let i = 0; i < dataX.length; i++) {
+    const x = dataX[i];
+    const y = dataY[i];
+    result.push({ x: i, varX: parseFloat(x), varY: parseFloat(y) });
+  }
+
+  return result;
 }

@@ -3,7 +3,7 @@
 import { ContentLayout } from "@/components/dashboard/content-layout";
 import { AnalysisForm } from "./form";
 import { Separator } from "@/components/ui/separator";
-import {  useState } from "react";
+import { useState } from "react";
 import { AreachartComponent } from "@/components/dashboard/analysis/areachart";
 import { LinechartComponent } from "@/components/dashboard/analysis/linechart";
 import BarchartComponent from "@/components/dashboard/analysis/barchart";
@@ -32,7 +32,7 @@ export default function Page() {
       <AnalysisForm setDataX={setDataX} setDataY={setDataY} />
       <Separator className="my-5" />
       <div className="grid grid-cols-1 gap-5">
-        {(!dataX || !dataY || dataX.length === 0 || dataY.length === 0) ? (
+        {!dataX || !dataY || dataX.length === 0 || dataY.length === 0 ? (
           <div>No data available for the chart</div>
         ) : (
           <>

@@ -13,6 +13,30 @@ export const metadata: Metadata = {
   icons: {
     icon: "/logo-transparent.png",
   },
+  openGraph: {
+    title: "MicroBiz - Automated Data Analyst for SMEs",
+    description: "An automated data analyst website for small and medium-sized enterprises",
+    images: [
+      {
+        url: "https://microbiz.vercel.app/logo-transparent.png",
+        width: 500,
+        height: 500,
+        alt: "MicroBiz Logo",
+      },
+    ],
+    url: "https://microbiz.vercel.app/",
+    siteName: "MicroBiz",
+    type: "website",
+    locale: "id_ID",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MicroBiz - Automated Data Analyst for SMEs",
+    description: "An automated data analyst website for small and medium-sized enterprises",
+    images: "https://microbiz.vercel.app/logo-transparent.png",
+    site: "@RasyadMr",
+    creator: "@RasyadMr",
+  },
 };
 
 export default function RootLayout({

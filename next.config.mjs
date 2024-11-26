@@ -5,13 +5,13 @@ const nextConfig = {
       protocol: "https",
       hostname: "img.icons8.com",
       port: "",
-      pathname: "/",
+      pathname: "/**",
       },
       {
       protocol: "https",
       hostname: "stbm7resourcesprod.blob.core.windows.net",
       port: "",
-      pathname: "/",
+      pathname: "/profilepicture/**",
       }]
   },
 };

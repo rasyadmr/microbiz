@@ -2,6 +2,7 @@ import { ContentLayout } from "@/components/dashboard/content-layout";
 import { Button } from "@/components/ui/button";
 import { ChartArea, FileText } from "lucide-react";
 import Link from "next/link";
+import Commits from "./commits";
 
 const breadcrumbList = [
   {
@@ -11,19 +12,6 @@ const breadcrumbList = [
   {
     label: "Dashboard",
   },
-];
-
-const updates = [
-  "Fix: Social Links & Consistent Text",
-  "Fix: Dashboard Navigation Bar",
-  "Add: Dashboard Content",
-  "Version 0.1.1",
-  "Add: Dashboard Loading Page",
-  "Add: Dashboard pages",
-  "Add: Dashboard Layout",
-  "Fix: Register page",
-  "Add: Authentication pages",
-  "Fix: EsLint and Prettier",
 ];
 
 export default function Page() {
@@ -47,21 +35,8 @@ export default function Page() {
           </Button>
         </div>
       </div>
-      <div className="mt-5">
-        <p className="text-gray-600">Perbaruan</p>
-        <ul className="my-2 border rounded-md px-5 py-2">
-          {updates.map((update, index) => (
-            <li key={index} className="mb-2">
-              <div className="flex items-center">
-                <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                <div className="ml-2">
-                  <h4 className="text-sm text-gray-500">{update}</h4>
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+      
+      <Commits />
     </ContentLayout>
   );
 }
